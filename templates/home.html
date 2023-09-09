@@ -1,0 +1,131 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Vetting system of custormers for loan application</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Loan status Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="Gender" placeholder="Enter you Gender" required>
+                <option class="placeholder" selected disabled value="">Select your Gender</option>
+                <option value="Male">
+                    Male
+                </option>
+                <option value="Female">
+                    Female
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Married</label>
+            <select class="form-control" name="Married" placeholder="Enter you Married" required>
+                <option class="placeholder" selected disabled value="">Select your Marriage</option>
+                <option value="Yes">
+                    Yes
+                </option>
+                <option value="No">
+                    No
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Dependents</label>
+            <select class="form-control" name="Dependents" placeholder="Enter your Dependents" required>
+                <option class="placeholder" selected disabled value="">Select Dependents</option>
+                <option value="None">
+                    None
+                </option>
+                <option value="One">
+                    One
+                </option>
+                <option value="Two">
+                    Two
+                </option>
+                <option value="Many">
+                    Many
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Education</label>
+            <select class="form-control" name="Education" placeholder="Enter you Education" required>
+                <option class="placeholder" selected disabled value="">Select Education</option>
+                <option value="Graduate">
+                    Graduate
+                </option>
+                <option value="Not Graduate">
+                    Not Graduate
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Self Employed</label>
+            <select class="form-control" name="Self_Employed"
+                placeholder="Enter you Self_Employed" required>
+                <option class="placeholder" selected disabled value="">Select Self_Employed</option>
+                <option value="No">
+                    No
+                </option>
+                <option value="Yes">
+                    Yes
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Applicant Income</label>
+            <input class="form-control" type="number" name="ApplicantIncome"
+                placeholder="Enter your ApplicantIncome " min='0' max='81000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Coapplicant or Partner Income</label>
+            <input class="form-control" type="number" name="CoapplicantIncome"
+                placeholder="Enter your Coapplicant Income" min='0' max='50000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Loan Amount</label>
+            <input class="form-control" type="number" name="Loan Amount"
+                placeholder="Enter your Loan Amount " min='0' max='10000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Loan Amount Term</label>
+            <input class="form-control" type="number" name="Loan_Amount_Term"
+                placeholder="Enter your Loan Amount Term" min='0' max='480' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Credit History</label>
+            <select class="form-control" name="Credit_History" placeholder="Enter you Credit_History" required>
+                <option class="placeholder" selected disabled value="">Select Credit_History</option>
+                <option value="Clear">
+                    Clear
+                </option>
+                <option value="Unclear">
+                    Unclear
+                </option>
+            </select>
+        <div class="mb-3">
+            <label class="form-label">Area</label>
+            <select class="form-control" name="Property_Area" placeholder="Property_Area" required>
+                <option class="placeholder" selected disabled value="">Select Property_Area</option>
+                <option value="Urban">
+                    Urban
+                </option>
+                <option value="Rural">
+                    Rural
+                </option>
+                <option value="Semiurban">
+                    Semiurban
+                </option>
+            </select>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict the loan application outcome" required />
+        </div>
+    </form>
+    <h2>
+       The loan application is {{results}}
+    </h2>
+   <body>
+</html>
