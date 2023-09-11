@@ -8,13 +8,13 @@ from sklearn.ensemble import (
     GradientBoostingClassifier,
     RandomForestClassifier,
 )
-#from sklearn.linear_model import LinearRegression
-#from sklearn.metrics import r2_score
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
 from sklearn import metrics
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
-from xgboost import XGBClassier
+from xgboost import XGBClassifier
 
 from src.exception import CustomException
 from src.logger import logging
@@ -44,20 +44,20 @@ class ModelTrainer:
                 "Decision Tree": DecisionTreeClassifier(),
                 "Gradient Boosting": GradientBoostingClassifier(),
                 "SVM": SVC(),
-                "XGBClassifier": XGBClassier(),
+                "XGBClassifier": XGBClassifier(),
                 "CatBoosting Classifier": CatBoostClassifier(verbose=False),
                 "AdaBoost Classifier": AdaBoostClassifier(),
             }
             params={
                 "Decision Tree": {
-                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    'criterion':['entropy', 'gini'],
                     # 'splitter':['best','random'],
                     # 'max_features':['sqrt','log2'],
-
-                "SVM": {
+                },
+                "SVM":{
                     'kernel':('rbf','poly'),
                     'C': [0.1,1,10],
-                    'gamma': [1,0.1, 0.01]}
+                    'gamma': [1,0.1, 0.01]
                 },
                 "Random Forest":{
                     # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
